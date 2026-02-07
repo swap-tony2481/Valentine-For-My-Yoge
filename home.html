@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💕 Valentine</div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="songs.html" class="nav-link">Songs</a></li>
+                <li><a href="story.html" class="nav-link">Our Story</a></li>
+                <li><a href="gallery.html" class="nav-link">Favorites</a></li>
+                <li><a href="photos.html" class="nav-link">Photos</a></li>
+                <li><a href="messages.html" class="nav-link">Messages</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <audio id="home-audio" preload="auto">
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+        <div class="heart-container">
+            <div class="floating-hearts"></div>
+        </div>
+        
+        <!-- Video Scene with Bears -->
+        <div class="video-scene">
+            <div class="scene-background"></div>
+            <div class="bears-video-container">
+                <div class="bear-video bubu-video">
+                    <div class="bear-animation">🧸</div>
+                    <div class="bear-label">Bubu</div>
+                </div>
+                <div class="heart-floating-scene">💕</div>
+                <div class="bear-video dudu-video">
+                    <div class="bear-animation">🐻</div>
+                    <div class="bear-label">Dudu</div>
+                </div>
+            </div>
+            <div class="swipe-indicator">
+                <div class="swipe-arrow">↑</div>
+                <p>Swipe Up to Continue</p>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <h1 class="title">Happy Valentine's Day 💕</h1>
+            
+            <p class="subtitle">To Yoge, The Love Of My Life</p>
+            
+            <div class="message-box">
+                <p class="message">
+                    Yoge, every moment with you feels like a dream come true.<br>
+                    You're not just my love, you're my best friend, my soulmate, my everything.<br>
+                    Thank you for making my life infinitely better just by being in it.
+                </p>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="showMessage()">Click Here For You 💌</button>
+                <button class="btn btn-secondary" onclick="createConfetti()">Celebrate! 🎉</button>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="story.html" class="btn btn-nav">📖 Read Our Story</a>
+                <a href="gallery.html" class="btn btn-nav">🖼️ View Gallery</a>
+                <a href="messages.html" class="btn btn-nav">💌 Special Messages</a>
+            </div>
+            
+            <div id="special-message" class="special-message hidden">
+                <div class="message-content">
+                    <h2>A Little Message From Your Heart...</h2>
+                    <p>Every moment with you is a treasure. Your laugh is my favorite sound, and your smile brightens my darkest days. I'm so grateful to have you in my life.</p>
+                    <p>Here's to love, laughter, and happily ever after with you. ❤️</p>
+                    <button class="btn btn-close" onclick="closeMessage()">Close</button>
+                </div>
+            </div>
+            
+            <div class="quote-section">
+                <p class="quote">"Love is not just a feeling, it's a choice I make every day... and I choose you."</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ for Yoge | Bubu 🧸 & Dudu 🐻</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // If the user clicked Yes on the landing page, autoplay the song here.
+        document.addEventListener('DOMContentLoaded', function(){
+            try {
+                const shouldPlay = localStorage.getItem('valentine_play_on_home') === '1';
+                if (shouldPlay) {
+                    const a = document.getElementById('home-audio');
+                    if (a) {
+                        a.play().catch(()=>{});
+                    }
+                }
+                // Clear the flag so it doesn't autoplay again unintentionally
+                localStorage.removeItem('valentine_play_on_home');
+            } catch(e) {}
+        });
+    </script>
+</body>
+</html>
